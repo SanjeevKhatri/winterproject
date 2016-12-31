@@ -8,10 +8,7 @@ import org.springframework.stereotype.Repository;
 import domain.User;
 
 @Repository
-public interface UserDao extends JpaRepository<User, String> {
+public interface ItemDao extends JpaRepository<User, String> {
 	public User findByName(String name);
-
-	public User findById(int id);
-	
 }
 
