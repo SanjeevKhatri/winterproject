@@ -1,27 +1,27 @@
 package domain;
 
-import java.util.Date;
+import java.util.*;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 @Entity
 public class User {
 	@Id @GeneratedValue
 	private int id;
 	
+	@OneToMany(mappedBy="user")
+	private List<Event> events=new ArrayList<>();
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dob;
 	
 	private String name;
 
+	
 	private String email;
 	@Embedded
 	private Address address;
+	
 	public Date getDob() {
 		return dob;
 	}
@@ -35,7 +35,6 @@ public class User {
 	public String getEmail() {
 		return email;
 	}
-
 
 	public void setEmail(String email) {
 		this.email = email;
@@ -80,4 +79,13 @@ public class User {
 		this.name = name;
 	}
 	
+	public List<Event> getEvents() {
+		return events;
+	}
+
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
 }
