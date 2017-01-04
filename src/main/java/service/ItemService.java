@@ -1,7 +1,8 @@
 package service;
 
-import domain.User;
+import domain.Item;
 
 public interface ItemService {
-	public User findUserByName(String name);
+	public void save(Item item);
+	public Item findItemByName(String name);
 }

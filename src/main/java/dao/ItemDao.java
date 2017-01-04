@@ -1,14 +1,13 @@
 package dao;
 
-import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import domain.User;
+import domain.Item;
+
 
 @Repository
-public interface ItemDao extends JpaRepository<User, String> {
-	public User findByName(String name);
+public interface ItemDao extends JpaRepository<Item, Integer> {
 }
 
