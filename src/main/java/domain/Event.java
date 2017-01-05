@@ -19,11 +19,11 @@ public class Event {
 	
 	private String place;
 	
-	@OneToMany(mappedBy="event")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="event")
 	private List<User> users=new ArrayList<>();
 	
 	
-	@OneToMany(cascade=CascadeType.PERSIST)
+	@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private List<Item> items=new ArrayList<>();
 	
 	

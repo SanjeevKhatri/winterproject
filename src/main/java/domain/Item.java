@@ -12,7 +12,9 @@ public class Item {
 	private int id;
 	private String name;
 	private double price;
-
+	
+	public Item(){}
+	
 	public Item(String name, double price) {
 		super();
 		this.name = name;
