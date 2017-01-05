@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -13,7 +12,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>My Circle</title>
+<title>Event</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="resources/contains/vendor/bootstrap/css/bootstrap.min.css"
@@ -50,13 +49,12 @@
 						<h3 class="panel-title">Event</h3>
 					</div>
 					<div class="panel-body">
-						<!--------------------------------------------------------------------->
+<!--------------------------------------------------------------------->
 
 						<h2>Modal Example</h2>
 						<!-- Trigger the modal with a button -->
 						<button type="button" class="btn btn-info btn-lg"
-							data-toggle="modal" data-target="#myModal">Add Items
-							used in this Event</button>
+							data-toggle="modal" data-target="#myModal">Add Items used in this Event</button>
 
 						<!-- Modal -->
 						<div class="modal fade" id="myModal" role="dialog">
@@ -66,7 +64,7 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Insert Item</h4>
+										<h4 class="modal-title">Modal Header</h4>
 									</div>
 									<div class="modal-body">
 
@@ -89,6 +87,8 @@
 											</fieldset>
 										</form:form>
 
+										<p>Some text in the modal.</p>
+
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default"
@@ -99,7 +99,7 @@
 							</div>
 						</div>
 
-						<!--------------------------------------------------------------------->
+<!--------------------------------------------------------------------->
 
 					</div>
 				</div>

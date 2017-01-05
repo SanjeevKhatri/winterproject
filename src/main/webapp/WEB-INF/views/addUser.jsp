@@ -31,6 +31,11 @@
 				<td>Password</td>
 				<td><form:input type="password" path="password" value="${user.password}"/></td>
 			</tr>
+			
+			<tr>
+				<td>City</td>
+				<td><form:input type="text" path="address.city"/></td>
+			</tr>
 
 			<tr>
 				<td></td>

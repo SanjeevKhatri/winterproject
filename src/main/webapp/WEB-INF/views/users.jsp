@@ -18,6 +18,7 @@
 			<th>Name</th>
 			<th>Email</th>
 			<th>Password</th>
+			<th>City</th>
 		</tr>
 
 		<c:forEach var="user" items="${users}">
@@ -26,6 +27,7 @@
 				<td>${user.email}</td>
 				<td>${user.password}</td>
 				<td>${user.id}</td>
+				<td>${user.address.city}</td>
 				<td>
 					<form action="delete" method="post">
 						<input name="userId" value="${user.id}" type="hidden">
