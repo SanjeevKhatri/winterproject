@@ -15,6 +15,11 @@ public class EventController {
 	@Autowired
 	EventService eventService;
 	
+	@RequestMapping(value = "/seeevents", method = RequestMethod.GET)
+	public String addItem(Model model) {
+		return "eventfeed";
+	}
+	
 	@RequestMapping(value = "/addEvent", method = RequestMethod.GET)
 	public String addEvent(@ModelAttribute("event") User user, Model model) {
 		return "addEvent";

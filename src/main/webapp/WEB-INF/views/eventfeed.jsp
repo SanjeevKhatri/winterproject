@@ -139,7 +139,7 @@
 					<li><a href="tables.html"><i class="fa fa-table fa-fw"></i>
 							Events<span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
-							<li><a href="seeevents">See Event</a></li>
+							<li><a href="feed">See Event</a></li>
 							<li><a href="feed">Add Event</a></li>
 							<li><a href="feed">Update Event</a></li>
 							<li><a href="feed">Delete Event</a></li>
@@ -162,7 +162,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<h1 class="page-header">
-						<i class="fa fa-edit fa-fw"></i> Posts
+						<i class="fa fa-edit fa-fw"></i> Events
 					</h1>
 					<div class="panel panel-default">
 						<div class="panel-heading">
@@ -180,6 +180,48 @@
 										exercitationem. Beatae, officia pariatur? Est cum veniam
 										excepturi. Maiores praesentium, porro voluptas suscipit facere
 										rem dicta, debitis.</p>
+
+									<button type="button" class="btn btn-info" data-toggle="modal"
+										data-target="#myModal">Add Items used</button>
+									<div class="modal fade" id="myModal" role="dialog">
+										<div class="modal-dialog">
+
+											<!-- Modal content-->
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+													<h4 class="modal-title">Modal Header</h4>
+												</div>
+												<div class="modal-body">
+
+													<form:form method="POST" action="addItem"
+														modelAttribute="item">
+														<fieldset>
+															<div class="form-group">
+																<input class="form-control" placeholder="ItemName"
+																	id="name" name="name" type="text" autofocus />
+															</div>
+															<div class="form-group">
+																<input class="form-control" placeholder="ItemPrice"
+																	id="price" name="price" type="text" />
+															</div>
+															<!-- Change this to a button or input when using this as a form -->
+															<a class="btn btn-lg btn-success btn-block" href="#">Add another item?</a><hr>
+															<a class="btn btn-lg btn-success btn-block" href="#">Its Final</a>
+															<!-- 												<a href="/hello/feed" -->
+															<!-- 													class="btn btn-lg btn-success btn-block">Submit Item details</a> -->
+														</fieldset>
+													</form:form>
+
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default"
+														data-dismiss="modal">Close</button>
+												</div>
+											</div>
+
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

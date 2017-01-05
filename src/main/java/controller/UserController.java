@@ -19,14 +19,14 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	@RequestMapping(value = "/addUser", method = RequestMethod.GET)
-	public String addUser(@ModelAttribute("user") User user, Model model) {
-		return "addUser";
+	public String addUser(Model model) {
+		return "feed";
 	}
 	
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("user") User user, Model model) {
 		userService.save(user);
-		return "redirect:/users";
+		return "feed";
 	}
 	
 	@RequestMapping(value = "/users", method = RequestMethod.GET)

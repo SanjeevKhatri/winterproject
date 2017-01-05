@@ -7,9 +7,12 @@ import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import domain.Item;
+import domain.User;
 import service.UserService;
 
 @Controller
@@ -46,6 +49,12 @@ public class HomeController {
 	public String signup(Model model) {
 		model.addAttribute("user", userService.findUserByName("manoj"));
 		return "signup";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String feedafterlogin(@ModelAttribute("user") User user, Model model) {
+		model.addAttribute("loginuser", user);
+		return "feed";
 	}
 
 	@RequestMapping(value = "/feed", method = RequestMethod.GET)
