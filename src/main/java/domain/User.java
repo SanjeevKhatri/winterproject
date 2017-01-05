@@ -19,7 +19,6 @@ public class User {
 	
 	private String email;
 	@Embedded
-	
 	private Address address;
 	
 	

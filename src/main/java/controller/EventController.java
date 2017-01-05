@@ -26,6 +26,10 @@ public class EventController {
 	
 	List<Item> items = new ArrayList<>();
 	List<User> users = new ArrayList<>();
+	@RequestMapping(value = "/seeevents", method = RequestMethod.GET)
+	public String addItem(Model model) {
+		return "eventfeed";
+	}
 	
 	@RequestMapping(value = "/addEvent", method = RequestMethod.GET)
 	public String addEvent(@ModelAttribute("event") User user, Model model) {

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -50,22 +51,16 @@
 						<h3 class="panel-title">Please Sign Up</h3>
 					</div>
 					<div class="panel-body">
-						<form role="form">
+						<form:form method="POST" action="addUser" modelAttribute="user">
 							<fieldset>
 								<div class="form-group">
-									<input class="form-control" placeholder="Name" name="name"
-										type="text" autofocus>
+									<input class="form-control" placeholder="Name" id="name" name="name" type="text" autofocus />
 								</div>
 								<div class="form-group">
-									<input class="form-control" placeholder="Date of Birth"
-										name="dob" type="date">
+									<input class="form-control" placeholder="City" id="city" name="city" type="text" />
 								</div>
 								<div class="form-group">
-									<input class="form-control" placeholder="City" name="city"
-										type="text">
-								</div>
-								<div class="form-group">
-									<select class="form-control" name="state">
+									<select class="form-control" id="state" name="state">
 										<option value="AL">Alabama</option>
 										<option value="AK">Alaska</option>
 										<option value="AZ">Arizona</option>
@@ -120,26 +115,24 @@
 									</select>
 								</div>
 								<div class="form-group">
-									<input class="form-control" placeholder="Zip" name="zip"
-										type="text">
+									<input class="form-control" placeholder="Street" id="street" name="street" type="text" />
 								</div>
 								<div class="form-group">
-									<input class="form-control" placeholder="Date of Birth"
-										name="dob" type="date">
+									<input class="form-control" placeholder="Zip" id="zip" name="zip" type="text" />
 								</div>
 								<div class="form-group">
-									<input class="form-control" placeholder="E-mail" name="email"
-										type="email">
+									<input class="form-control" placeholder="Date of Birth" id="dob" name="dob" type="date" />
 								</div>
 								<div class="form-group">
-									<input class="form-control" placeholder="Password"
-										name="password" type="password" value="">
+									<input class="form-control" placeholder="E-mail" id="email" name="email" type="email" />
+								</div>
+								<div class="form-group">
+									<input class="form-control" placeholder="Password" id="password" name="password" type="password" />
 								</div>
 								<!-- Change this to a button or input when using this as a form -->
-								<a href="/hello/feed" class="btn btn-lg btn-success btn-block">Sign
-									Up</a>
+								<input class="btn btn-lg btn-success btn-block" type="submit" value="SignUp" />
 							</fieldset>
-						</form>
+						</form:form>
 					</div>
 				</div>
 			</div>

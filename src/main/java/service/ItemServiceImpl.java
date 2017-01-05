@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.ItemDao;
-import dao.UserDao;
 import domain.Item;
-import domain.User;
 
 @Service
 @Transactional
@@ -26,5 +24,11 @@ public class ItemServiceImpl implements ItemService{
 	public Item findItemByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void deleteItem(int id) {
+		itemDao.delete(id);
+		
 	}
 }

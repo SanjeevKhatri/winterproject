@@ -67,7 +67,28 @@
 										<h4 class="modal-title">Modal Header</h4>
 									</div>
 									<div class="modal-body">
+
+										<form:form method="POST" action="addItem"
+											modelAttribute="item">
+											<fieldset>
+												<div class="form-group">
+													<input class="form-control" placeholder="ItemName"
+														id="name" name="name" type="text" autofocus />
+												</div>
+												<div class="form-group">
+													<input class="form-control" placeholder="ItemPrice"
+														id="price" name="price" type="text" />
+												</div>
+												<!-- Change this to a button or input when using this as a form -->
+												<input class="btn btn-lg btn-success btn-block"
+													type="submit" value="submit">
+												<!-- 												<a href="/hello/feed" -->
+												<!-- 													class="btn btn-lg btn-success btn-block">Submit Item details</a> -->
+											</fieldset>
+										</form:form>
+
 										<p>Some text in the modal.</p>
+
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default"
