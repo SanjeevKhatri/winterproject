@@ -13,10 +13,15 @@ public class Item {
 	private String name;
 	private double price;
 
+	public Item(String name, double price) {
+		super();
+		this.name = name;
+		this.price = price;
+	}
+
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}

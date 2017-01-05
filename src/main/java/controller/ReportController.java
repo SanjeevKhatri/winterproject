@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,8 @@ public class ReportController {
 	UserService userService;
 	
 	
-	@RequestMapping(value = "/report", method = RequestMethod.GET)
+	
+	@RequestMapping(value = "/report", method = RequestMethod.POST)
 	public String generateReport(@RequestParam("eventId") int id, Model model) {
 		Event event = eventService.findEventById(id);
 		double totalAmount = 0;
@@ -34,4 +36,6 @@ public class ReportController {
 		model.addAttribute("totalAmount", totalAmount);
 		return "report";
 	}
+	
+	
 }

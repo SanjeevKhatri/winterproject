@@ -30,13 +30,16 @@
 						<input type="submit" value="delete">
 					</form>
 				</td>
-
+ 
 				<td>
 					<form action="updateEvent" method="post">
 						<input style="border-radius: 2px" type="hidden"
 							name="eventId" value="${event.id}"> <input
 							type="submit" value="Update">
 					</form>
+				</td>
+				<td>
+					<li><a href="/hello/eventDetail/${event.id}">EventDetail</a></li>
 				</td>
 			</tr>
 		</c:forEach>

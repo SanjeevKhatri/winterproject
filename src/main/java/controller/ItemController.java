@@ -16,15 +16,15 @@ public class ItemController {
 	@Autowired
 	ItemService itemService;
 
-	@RequestMapping(value = "/addItem", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/addItem", method = RequestMethod.GET)
 	public String addItem(Model model) {
 		model.addAttribute("item", new Item());
 		return "addItem";
-	}
+	}*/
 
-	@RequestMapping(value = "/addItem", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/addItem", method = RequestMethod.POST)
 	public String saveItem(@ModelAttribute("item") Item item, Model model) {
 		itemService.save(item);
 		return "addItem";
-	}
+	}*/
 }

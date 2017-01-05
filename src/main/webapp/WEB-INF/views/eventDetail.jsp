@@ -15,11 +15,25 @@
 		<ul>
 			<li>${event.date}</li>
 			<li>${event.place}</li>
-			<c:forEach var="user" items="${users}">
-				<li class="members">
-					<input type="checkbox" name="user" value="${user}" />${user}
-				</li>
-			</c:forEach>
+			<li>
+				<c:forEach var="user" items="${activeUsers}">
+					<p class="activeMembers">
+						${user.name}
+					</p>
+				</c:forEach>
+			</li>
+			<li>
+				<form action="/hello/addEventUser" method="post">
+					<c:forEach var="user" items="${users}">
+						<li class="members">
+							<input type = "hidden" name = "eventId" value="${event.id}"/>
+							<input type="checkbox" name="user" value="${user.name}" />${user.name}
+						</li>
+					</c:forEach>
+					<input type="submit" name="save" />
+				</form>
+			</li>
+			
 			<c:forEach var="item" items="${items}">
 				<li class="items">
 					<ul>
@@ -28,7 +42,15 @@
 					</ul>
 				</li>
 			</c:forEach>
+			
+			
 		</ul>
+		<form action = "/hello/addEventItem" method = "post">
+			<input type = "text" name="name" />
+			<input type = "text" name="price" />
+			<input type = "hidden" name = "eventId" value="${event.id}"/>
+			<input type = "submit" value = "Add Product" />
+		</form>
 	</div>
 </body>
 </html>
