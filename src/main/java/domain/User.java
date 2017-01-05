@@ -8,19 +8,30 @@ import javax.persistence.*;
 public class User {
 	@Id @GeneratedValue
 	private int id;
-	
-	@OneToMany(mappedBy="user")
-	private List<Event> events=new ArrayList<>();
+	@ManyToOne
+	@JoinTable(name = "User_Event")
+	private Event event;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dob;
 	
 	private String name;
-
 	
 	private String email;
 	@Embedded
+	
 	private Address address;
+	
+	
+	public Event getEvent() {
+		return event;
+	}
+
+
+	public void setEvent(Event event) {
+		this.event = event;
+	}
+
 	
 	public Date getDob() {
 		return dob;
@@ -77,15 +88,6 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-	
-	public List<Event> getEvents() {
-		return events;
-	}
-
-
-	public void setEvents(List<Event> events) {
-		this.events = events;
 	}
 
 }

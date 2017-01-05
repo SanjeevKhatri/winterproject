@@ -1,26 +1,44 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 @Entity
 public class Event {
+	
 	@Id @GeneratedValue
 	private int id;
+	
 	private String name;
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
-	private String place;
-	@ManyToOne
-	private User user;
 	
+	private String place;
+	
+	@OneToMany(mappedBy="event")
+	private List<User> users=new ArrayList<>();
+	
+	
+	@OneToMany(cascade=CascadeType.PERSIST)
+	private List<Item> items=new ArrayList<>();
+	
+	
+	public List<User> getUsers() {
+		return users;
+	}
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+	public List<Item> getItems() {
+		return items;
+	}
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
 	public int getId() {
 		return id;
 	}
