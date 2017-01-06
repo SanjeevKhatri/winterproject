@@ -17,39 +17,17 @@ public class ItemController {
 	@Autowired
 	ItemService itemService;
 
-	@RequestMapping(value = "/addItem", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/addItem", method = RequestMethod.GET)
 	public String addItem(Model model) {
 		return "addItem";
-	}
+	}*/
 
-	@RequestMapping(value = "/addItem", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/addItem", method = RequestMethod.POST)
 	public String saveItem(@ModelAttribute("item") Item item, Model model) {
 		itemService.save(item);
 		model.addAttribute("latestItem", item);
 		return "addItem";
-	}
-	
-	
-	
-//	@RequestMapping(value = "/updateitem/{id}", method = RequestMethod.GET)
-//	public String updateItemById(@PathVariable("id") int id, @ModelAttribute("updatevehicle") Vehicle updatevehicle,
-//			Model model) {
-//		Vehicle vehicle = vehicleservice.findById(id);
-//		model.addAttribute("updatevehicle", vehicle);
-//		return "updatevehicle";
-//	}
-//
-//	@RequestMapping(value = "/updateitem/{id}", method = RequestMethod.POST)
-//	public String updateItem(@PathVariable("id") int id, @ModelAttribute("updatevehicle") Vehicle updatevehicle) {
-//		updatevehicle.setId(id);
-//		vehicleservice.addVehicle(updatevehicle);
-//		return "redirect:/vehicleList";
-//	}
-
-	@RequestMapping("/deleteitem/{id}")
-	public String removeItem(@PathVariable("id") int id) {
-		itemService.deleteItem(id);
-		return "redirect:/addItem";
-	}
+<<<<<<< HEAD
+	}*/
 
 }

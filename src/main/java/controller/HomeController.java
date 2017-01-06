@@ -13,12 +13,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import domain.Item;
 import domain.User;
+import service.EventService;
 import service.UserService;
 
 @Controller
 public class HomeController {
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	EventService eventService;
 
 	// @RequestMapping(value = "/", method = RequestMethod.GET)
 	// public String home(Locale locale, Model model) {
@@ -54,13 +58,14 @@ public class HomeController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String feedafterlogin(@ModelAttribute("user") User user, Model model) {
 		model.addAttribute("loginuser", user);
-		return "feed";
+		model.addAttribute("events", eventService.findAll());
+		return "events";
 	}
 
 	@RequestMapping(value = "/feed", method = RequestMethod.GET)
 	public String feed(Model model) {
 		model.addAttribute("user", userService.findUserByName("manoj"));
-		return "feed";
+		return "events";
 	}
 
 }

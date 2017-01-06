@@ -39,7 +39,7 @@ public class UserController {
 	public String deleteUser(@RequestParam("userId") int id, ModelMap model) {
 		User user = userService.findUserById(id);
 		userService.delete(user);
-		return "users";
+		return "redirect:/users";
 	}
 	
 	@RequestMapping(value = "/updateUser", method = RequestMethod.POST)

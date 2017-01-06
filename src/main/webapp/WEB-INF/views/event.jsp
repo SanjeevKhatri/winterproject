@@ -55,7 +55,13 @@
 						<!-- Trigger the modal with a button -->
 						<button type="button" class="btn btn-info btn-lg"
 							data-toggle="modal" data-target="#myModal">Add Items used in this Event</button>
-
+						
+						<!---------------------------------update------------------------------------>
+						<button type="button" class="btn btn-info btn-lg">Update</button>
+							<!--------------------------------delete------------------------------------->
+							<button type="button" class="btn btn-info btn-lg">Delete</button>
+							
+							<!--------------------------------------------------------------------->
 						<!-- Modal -->
 						<div class="modal fade" id="myModal" role="dialog">
 							<div class="modal-dialog">
