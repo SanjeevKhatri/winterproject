@@ -104,7 +104,6 @@ public class EventController {
 			System.out.println(eventId);
 			model.addAttribute("items", items);
 			return "redirect:/eventDetail/"+eventId;
-			
 	}
 	
 	@RequestMapping(value = "/addEventUser", method=RequestMethod.POST)
