@@ -14,6 +14,7 @@ import domain.Event;
 import domain.Item;
 import domain.User;
 import service.EventService;
+import service.ItemService;
 import service.UserService;
 
 @Controller
@@ -23,6 +24,10 @@ public class EventController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	ItemService itemService;
+	
 	
 	List<Item> items = new ArrayList<>();
 	List<User> users = new ArrayList<>();
@@ -37,11 +42,16 @@ public class EventController {
 	}
 	
 	@RequestMapping(value = "/addEvent", method = RequestMethod.POST)
-	public String saveEvent(@ModelAttribute("event") Event event, Model model) {
-		Event eventTemp = eventService.findEventById(event.getId());
-		eventTemp.setName(event.getName());
-		eventTemp.setPlace(event.getPlace());
-		eventService.save(eventTemp);
+	public String saveEvent(@ModelAttribute("event") Event event,@RequestParam("id") int id, Model model) {
+		Event eventTemp = eventService.findEventById(id);
+		if(eventTemp!=null){
+			eventTemp.setName(event.getName());
+			eventTemp.setPlace(event.getPlace());
+			eventService.save(eventTemp);
+		}
+		else{
+			eventService.save(event);
+		}
 		return "redirect:/events";
 	}
 	
@@ -67,13 +77,23 @@ public class EventController {
 	
 	@RequestMapping(value = "/addEventDetail/{eventId}", method = RequestMethod.GET)
 	public String saveEventDetail(@PathVariable("eventId") int id, ModelMap model) {
+		List<Item> tempItem = new ArrayList<>();
 		Event event = eventService.findEventById(id);
-		event.setItems(items);
+		
 		for(User user: users){
 			user.setEvent(event);
+			userService.save(user);
 		}
+		for(Item item: items){
+			itemService.save(item);
+		}
+		for(Item item: items){
+			System.out.println(item.getName());
+			tempItem.add(itemService.findByName(item.getName()));
+		}
+		System.out.println(tempItem.get(0).getName());
+		event.setItems(tempItem);
 		event.setUsers(users);
-		System.out.println(event.getItems().get(0).getName()+" "+event.getUsers().get(0).getName());
 		eventService.save(event);
 		return "redirect:/report/"+id;
 	}

@@ -26,7 +26,6 @@ public class Event {
 	@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private List<Item> items=new ArrayList<>();
 	
-	
 	public List<User> getUsers() {
 		return users;
 	}

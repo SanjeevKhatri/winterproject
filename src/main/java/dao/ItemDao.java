@@ -9,5 +9,6 @@ import domain.Item;
 
 @Repository
 public interface ItemDao extends JpaRepository<Item, Integer> {
+	public Item findByName(String name);
 }
 
