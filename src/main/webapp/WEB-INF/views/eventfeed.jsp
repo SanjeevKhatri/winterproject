@@ -1,257 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<html lang="en">
-
+<html>
 <head>
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<title>My Circle</title>
-
-<!-- Bootstrap Core CSS -->
-<link href="resources/contains/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-
-<!-- MetisMenu CSS -->
-<link href="resources/contains/vendor/metisMenu/metisMenu.min.css"
-	rel="stylesheet">
-
-<!-- Custom CSS -->
-<link href="resources/contains/dist/css/sb-admin-2.css" rel="stylesheet">
-
-<!-- Morris Charts CSS -->
-<link href="resources/contains/vendor/morrisjs/morris.css"
-	rel="stylesheet">
-
-<!-- Custom Fonts -->
-<link
-	href="resources/contains/vendor/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Products</title>
+<%-- 	<%@include file=".jsp" %> --%>
 </head>
-
 <body>
 
-	<div id="wrapper">
+	<table border="1px" cellspacing="10px">
+		<tr>
+			<th>Event Id</th>
+			<th>Name</th>
+			<th>Place</th>
+		</tr>
 
-		<!-- Navigation -->
-		<nav class="navbar navbar-default navbar-static-top" role="navigation"
-			style="margin-bottom: 0">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target=".navbar-collapse">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="index.html">My Circle</a>
-		</div>
-		<!-- /.navbar-header -->
-
-		<ul class="nav navbar-top-links navbar-right">
-
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"> <i class="fa fa-bell fa-fw"></i>
-					<i class="fa fa-caret-down"></i>
-			</a>
-				<ul class="dropdown-menu dropdown-alerts">
-					<li><a href="#">
-							<div>
-								<i class="fa fa-edit fa-fw"></i> New Post <span
-									class="pull-right text-muted small">4 minutes ago</span>
-							</div>
-					</a></li>
-					<li><a href="#">
-							<div>
-								<i class="fa fa-table fa-fw"></i> New Event <span
-									class="pull-right text-muted small">1 minutes ago</span>
-							</div>
-					</a></li>
-				</ul></li>
-
-
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"> <i class="fa fa-envelope fa-fw"></i>
-					<i class="fa fa-caret-down"></i>
-			</a>
-				<ul class="dropdown-menu dropdown-messages">
-					<li><a href="#">
-							<div>
-								<strong>John Smith</strong> <span class="pull-right text-muted">
-									<em>Yesterday</em>
-								</span>
-							</div>
-							<div>Lorem ipsum dolor sit amet, consectetur adipiscing
-								elit. Pellentesque eleifend...</div>
-					</a></li>
-					<li class="divider"></li>
-					<li><a class="text-center" href="#"> <strong>Read
-								All Messages</strong> <i class="fa fa-angle-right"></i>
-					</a></li>
-				</ul> <!-- /.dropdown-messages --></li>
-
-
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i>
-					<i class="fa fa-caret-down"></i>
-			</a>
-				<ul class="dropdown-menu dropdown-user">
-					<li><a href="#"><i class="fa fa-user fa-fw"></i> User
-							Profile</a></li>
-					<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-					</li>
-					<li class="divider"></li>
-					<li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>
-							Logout</a></li>
-				</ul> <!-- /.dropdown-user --></li>
-			<!-- /.dropdown -->
-		</ul>
-		<!-- /.navbar-top-links -->
-
-		<div class="navbar-default sidebar" role="navigation">
-			<div class="sidebar-nav navbar-collapse">
-				<ul class="nav" id="side-menu">
-					<li class="sidebar-search">
-						<div class="input-group custom-search-form">
-							<input type="text" class="form-control" placeholder="Search...">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button">
-									<i class="fa fa-search"></i>
-								</button>
-							</span>
-						</div> <!-- /input-group -->
-					</li>
-
-
-					<li><a href="tables.html"><i class="fa fa-table fa-fw"></i>
-							Events<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<li><a href="feed">See Event</a></li>
-							<li><a href="feed">Add Event</a></li>
-							<li><a href="feed">Update Event</a></li>
-							<li><a href="feed">Delete Event</a></li>
-						</ul></li>
-					<li><a href="forms.html"><i class="fa fa-edit fa-fw"></i>
-							Posts<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<li><a href="feed">See Post</a></li>
-							<li><a href="feed">Add Post</a></li>
-							<li><a href="feed">Update Post</a></li>
-							<li><a href="feed">Delete Post</a></li>
-						</ul></li>
-				</ul>
-			</div>
-			<!-- /.sidebar-collapse -->
-		</div>
-		<!-- /.navbar-static-side --> </nav>
-
-		<div id="page-wrapper">
-			<div class="row">
-				<div class="col-lg-12">
-					<h1 class="page-header">
-						<i class="fa fa-edit fa-fw"></i> Events
-					</h1>
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h4 class="timeline-title">Lorem ipsum dolor</h4>
-									<p>
-										<small class="text-muted"><i class="fa fa-clock-o"></i>11
-											hours ago via Twitter</small>
-									</p>
-								</div>
-								<div class="timeline-body">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-										elit. Libero laboriosam dolor perspiciatis omnis
-										exercitationem. Beatae, officia pariatur? Est cum veniam
-										excepturi. Maiores praesentium, porro voluptas suscipit facere
-										rem dicta, debitis.</p>
-
-									<button type="button" class="btn btn-info" data-toggle="modal"
-										data-target="#myModal">Add Items used</button>
-									<div class="modal fade" id="myModal" role="dialog">
-										<div class="modal-dialog">
-
-											<!-- Modal content-->
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h4 class="modal-title">Modal Header</h4>
-												</div>
-												<div class="modal-body">
-
-													<form:form method="POST" action="addItem"
-														modelAttribute="item">
-														<fieldset>
-															<div class="form-group">
-																<input class="form-control" placeholder="ItemName"
-																	id="name" name="name" type="text" autofocus />
-															</div>
-															<div class="form-group">
-																<input class="form-control" placeholder="ItemPrice"
-																	id="price" name="price" type="text" />
-															</div>
-															<!-- Change this to a button or input when using this as a form -->
-															<a class="btn btn-lg btn-success btn-block" href="#">Add another item?</a><hr>
-															<a class="btn btn-lg btn-success btn-block" href="#">Its Final</a>
-															<!-- 												<a href="/hello/feed" -->
-															<!-- 													class="btn btn-lg btn-success btn-block">Submit Item details</a> -->
-														</fieldset>
-													</form:form>
-
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-default"
-														data-dismiss="modal">Close</button>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /#page-wrapper -->
-
-	</div>
-	<!-- /#wrapper -->
-
-	<!-- jQuery -->
-	<script src="resources/contains/vendor/jquery/jquery.min.js"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="resources/contains/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-	<!-- Metis Menu Plugin JavaScript -->
-	<script src="resources/contains/vendor/metisMenu/metisMenu.min.js"></script>
-
-	<!-- Morris Charts JavaScript -->
-	<script src="resources/contains/vendor/raphael/raphael.min.js"></script>
-	<script src="resources/contains/vendor/morrisjs/morris.min.js"></script>
-	<script src="resources/contains/data/morris-data.js"></script>
-
-	<!-- Custom Theme JavaScript -->
-	<script src="resources/contains/dist/js/sb-admin-2.js"></script>
-
+		<c:forEach var="event" items="${events}">
+			<tr>
+				<td>${event.name}</td>
+				<td>${event.place}</td>
+				<td>${event.id}</td>
+				<td>
+					<form action="deleteEvent" method="post">
+						<input name="eventId" value="${event.id}" type="hidden">
+						<input type="submit" value="delete">
+					</form>
+				</td>
+ 
+				<td>
+					<form action="updateEvent" method="post">
+						<input style="border-radius: 2px" type="hidden"
+							name="eventId" value="${event.id}"> <input
+							type="submit" value="Update">
+					</form>
+				</td>
+				<td>
+					<li><a href="/hello/eventDetail/${event.id}">EventDetail</a></li>
+				</td>
+			</tr>
+		</c:forEach>
+	</table>
+	<a href="addEvent">AddEvent</a>
 </body>
-
 </html>
-

@@ -33,7 +33,7 @@ public class EventController {
 	List<User> users = new ArrayList<>();
 	@RequestMapping(value = "/seeevents", method = RequestMethod.GET)
 	public String addItem(Model model) {
-		return "eventfeed";
+		return "events";
 	}
 	
 	@RequestMapping(value = "/addEvent", method = RequestMethod.GET)
