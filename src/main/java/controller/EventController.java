@@ -32,13 +32,16 @@ public class EventController {
 	}
 	
 	@RequestMapping(value = "/addEvent", method = RequestMethod.GET)
-	public String addEvent(@ModelAttribute("event") User user, Model model) {
+	public String addEvent(@ModelAttribute("event") Event event, Model model) {
 		return "addEvent";
 	}
 	
 	@RequestMapping(value = "/addEvent", method = RequestMethod.POST)
 	public String saveEvent(@ModelAttribute("event") Event event, Model model) {
-		eventService.save(event);
+		Event eventTemp = eventService.findEventById(event.getId());
+		eventTemp.setName(event.getName());
+		eventTemp.setPlace(event.getPlace());
+		eventService.save(eventTemp);
 		return "redirect:/events";
 	}
 	
@@ -66,7 +69,11 @@ public class EventController {
 	public String saveEventDetail(@PathVariable("eventId") int id, ModelMap model) {
 		Event event = eventService.findEventById(id);
 		event.setItems(items);
+		for(User user: users){
+			user.setEvent(event);
+		}
 		event.setUsers(users);
+		System.out.println(event.getItems().get(0).getName()+" "+event.getUsers().get(0).getName());
 		eventService.save(event);
 		return "redirect:/report/"+id;
 	}

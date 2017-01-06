@@ -40,13 +40,19 @@ public class EventServiceImpl implements EventService{
 		eventDao.delete(event);
 	}
 	@Override
-	public void update(Event event) {
+	public void update(Event event,int id) {
 		// TODO Auto-generated method stub
-		eventDao.save(event);
+		Event eventTemp = eventDao.findById(id);
+		eventTemp.setItems(event.getItems());
+		eventTemp.setName(event.getName());
+		eventTemp.setPlace(event.getPlace());
+		eventTemp.setUsers(event.getUsers());
+		eventDao.save(eventTemp);
 	}
 	@Override
 	public void save(Event event) {
 		// TODO Auto-generated method stub
+		System.out.println(event.getItems().get(0).getName()+""+event.getUsers().get(0).getName());
 		eventDao.save(event);
 	}
 	/*@Override

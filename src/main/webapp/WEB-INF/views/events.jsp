@@ -14,8 +14,7 @@
 
 	<table border="1px" cellspacing="10px">
 		<tr>
-			<th>Event Id</th>
-			<th>Name</th>
+			<th>Event Name</th>
 			<th>Place</th>
 		</tr>
 
@@ -23,7 +22,6 @@
 			<tr>
 				<td>${event.name}</td>
 				<td>${event.place}</td>
-				<td>${event.id}</td>
 				<td>
 					<form action="deleteEvent" method="post">
 						<input name="eventId" value="${event.id}" type="hidden">
@@ -34,8 +32,8 @@
 				<td>
 					<form action="updateEvent" method="post">
 						<input style="border-radius: 2px" type="hidden"
-							name="eventId" value="${event.id}"> <input
-							type="submit" value="Update">
+							name="eventId" value="${event.id}"> 
+							<input type="submit" value="Update">
 					</form>
 				</td>
 				<td>
