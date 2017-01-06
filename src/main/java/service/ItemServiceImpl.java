@@ -21,9 +21,9 @@ public class ItemServiceImpl implements ItemService{
 	}
 
 	@Override
-	public Item findItemByName(String name) {
+	public Item findByName(String name) {
 		// TODO Auto-generated method stub
-		return null;
+		return itemDao.findByName(name);
 	}
 
 	@Override

@@ -52,6 +52,7 @@ public class EventServiceImpl implements EventService{
 	@Override
 	public void save(Event event) {
 		// TODO Auto-generated method stub
+
 		//System.out.println(event.getItems().get(0).getName()+""+event.getUsers().get(0).getName());
 		eventDao.save(event);
 	}
