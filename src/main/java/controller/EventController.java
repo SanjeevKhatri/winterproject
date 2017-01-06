@@ -32,13 +32,16 @@ public class EventController {
 	}
 	
 	@RequestMapping(value = "/addEvent", method = RequestMethod.GET)
-	public String addEvent(@ModelAttribute("event") User user, Model model) {
+	public String addEvent(@ModelAttribute("event") Event event, Model model) {
 		return "addEvent";
 	}
 	
 	@RequestMapping(value = "/addEvent", method = RequestMethod.POST)
 	public String saveEvent(@ModelAttribute("event") Event event, Model model) {
-		eventService.save(event);
+		Event eventTemp = eventService.findEventById(event.getId());
+		eventTemp.setName(event.getName());
+		eventTemp.setPlace(event.getPlace());
+		eventService.save(eventTemp);
 		return "redirect:/events";
 	}
 	
@@ -62,6 +65,19 @@ public class EventController {
 		return "addEvent";
 	}
 	
+	@RequestMapping(value = "/addEventDetail/{eventId}", method = RequestMethod.GET)
+	public String saveEventDetail(@PathVariable("eventId") int id, ModelMap model) {
+		Event event = eventService.findEventById(id);
+		event.setItems(items);
+		for(User user: users){
+			user.setEvent(event);
+		}
+		event.setUsers(users);
+		System.out.println(event.getItems().get(0).getName()+" "+event.getUsers().get(0).getName());
+		eventService.save(event);
+		return "redirect:/report/"+id;
+	}
+	
 	@RequestMapping(value = "/addEventItem", method = RequestMethod.POST)
 	public String addItem(@RequestParam("eventId")int eventId, @RequestParam("name")String name, @RequestParam("price")double price, Model model) {
 			items.add(new Item(name,price));
@@ -74,10 +90,8 @@ public class EventController {
 	@RequestMapping(value = "/addEventUser", method=RequestMethod.POST)
 	public String addEventUser(@RequestParam("user") String[] userName, Model model, @RequestParam("eventId")int eventId) {
 			for(String name : userName){
-				System.out.println("====="+name);
 				users.add(userService.findUserByName(name));
 			}
-			model.addAttribute("activeUser", users);
 			return "redirect:/eventDetail/"+eventId;
 			
 	}
@@ -93,6 +107,7 @@ public class EventController {
 	
 	@RequestMapping(value = "/eventDetail/{eventId}", method = RequestMethod.GET)
 	public String eventDetail(@PathVariable("eventId") int id, Model model) {
+			model.addAttribute("activeUser", users);
 			model.addAttribute("items", items);
 			model.addAttribute("users", userService.findAll());
 			model.addAttribute("event", eventService.findEventById(id));

@@ -16,7 +16,7 @@
 			<li>${event.date}</li>
 			<li>${event.place}</li>
 			<li>
-				<c:forEach var="user" items="${activeUsers}">
+				<c:forEach var="user" items="${activeUser}">
 					<p class="activeMembers">
 						${user.name}
 					</p>
@@ -51,6 +51,7 @@
 			<input type = "hidden" name = "eventId" value="${event.id}"/>
 			<input type = "submit" value = "Add Product" />
 		</form>
+		<a href="/hello/addEventDetail/${event.id}">Finish and Save</a>
 	</div>
 </body>
 </html>

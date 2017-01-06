@@ -23,8 +23,8 @@ public class ReportController {
 	
 	
 	
-	@RequestMapping(value = "/report", method = RequestMethod.POST)
-	public String generateReport(@RequestParam("eventId") int id, Model model) {
+	@RequestMapping(value = "/report/{eventId}", method = RequestMethod.GET)
+	public String generateReport(@PathVariable("eventId") int id, Model model) {
 		Event event = eventService.findEventById(id);
 		double totalAmount = 0;
 		for(Item item : event.getItems()){

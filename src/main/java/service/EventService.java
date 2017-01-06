@@ -11,6 +11,6 @@ public interface EventService {
 	public List<Event> findAll();
 	public void deleteAll();
 	public void delete(Event event);
-	public void update(Event event);
+	public void update(Event event,int id);
 	public void save(Event event);
 }

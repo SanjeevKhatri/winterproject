@@ -6,8 +6,10 @@ import javax.persistence.*;
 
 @Entity
 public class User {
+	
 	@Id @GeneratedValue
 	private int id;
+	
 	@ManyToOne
 	@JoinTable(name = "User_Event")
 	private Event event;
