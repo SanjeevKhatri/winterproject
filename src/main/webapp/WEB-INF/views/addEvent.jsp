@@ -170,32 +170,44 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<div class="timeline-panel">
-								<form:form action="addEvent" method="post" commandName="event">
+								<form:form action="addEvent" method="post"
+									modelAttribute="event" commandName="event">
 									<table>
 
 										<tr>
 											<td>Name</td>
-											<td><form:input type="text" path="name"
-													value="${event.name}" /></td>
-													
-													<form:input type="hidden" path="id"
-													value="${event.id}" />
+											<td>
+												<div class="form-group">
+													<form:input class="form-control" type="text" path="name"
+														value="${event.name}" />
+												</div>
+											</td>
+
+											<form:input type="hidden" path="id" value="${event.id}" />
 										</tr>
 
 										<tr>
 											<td>Place</td>
-											<td><form:input type="text" path="place"
-													value="${event.place}" /></td>
+
+											<td><div class="form-group">
+													<form:input class="form-control" type="text" path="place"
+														value="${event.place}" />
+												</div></td>
+
 										</tr>
 										<tr>
 											<td>Date</td>
-											<td><form:input type="date" path="date"
-													value="${event.date}" /></td>
+
+											<td><div class="form-group">
+													<form:input class="form-control" type="date" path="date"
+														value="${event.date}" />
+												</div></td>
 										</tr>
 
 
 										<tr>
-											<td><input type="submit" value="submit"></td>
+											<td><input class="btn btn-lg btn-success btn-block"
+												type="submit" value="submit"></td>
 										</tr>
 									</table>
 								</form:form>

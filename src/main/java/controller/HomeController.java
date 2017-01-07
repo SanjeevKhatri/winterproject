@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import domain.Event;
 import domain.Item;
 import domain.User;
 import service.EventService;
@@ -50,9 +51,8 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-	public String signup(Model model) {
-		model.addAttribute("user", userService.findUserByName("manoj"));
-		return "signup";
+	public String signup(@ModelAttribute("user") User user, Model model) {
+		return "addUser";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)

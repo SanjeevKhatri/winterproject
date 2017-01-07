@@ -19,23 +19,23 @@
 		
 			<tr>
 				<td>Name</td>
-				<td><form:input type="text" path="name" value="${user.name}"/></td>
+				<td><form:input type="text" name="name" id="name" path="name" value="${user.name}"/></td>
 			</tr>
 
 			<tr>
 				<td>Email</td>
-				<td><form:input type="email" path="email" value="${user.email}"/></td>
+				<td><form:input type="email" name="email" id="email" path="email" value="${user.email}"/></td>
 			</tr>
 			
 			<tr>
 				<td>Password</td>
-				<td><form:input type="password" path="password" value="${user.password}"/>
+				<td><form:input type="password" name="password" id="password" path="password" value="${user.password}"/>
 				</td>
 			</tr>
 			
 			<tr>
 				<td>City</td>
-				<td><form:input type="text" path="address.city"/></td>
+				<td><form:input type="text" name="city" id="city" path="address.city"/></td>
 			</tr>
 			
 			<tr>

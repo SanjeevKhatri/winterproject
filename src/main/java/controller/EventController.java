@@ -39,22 +39,26 @@ public class EventController {
 
 	@RequestMapping(value = "/addEvent", method = RequestMethod.GET)
 	public String addEvent(@ModelAttribute("event") Event event, Model model) {
+		System.out.println(event.getPlace()+".............++++++++++++++++..................");
 		return "addEvent";
 	}
 
 	@RequestMapping(value = "/addEvent", method = RequestMethod.POST)
 	public String saveEvent(@ModelAttribute("event") Event event,@RequestParam("id") int id, Model model) {
 		Event eventTemp = eventService.findEventById(id);
+		
+		System.out.println(event.getPlace()+"..............================.................");
 
 		if(eventTemp!=null){
 			eventTemp.setName(event.getName());
 			eventTemp.setPlace(event.getPlace());
-			eventTemp.setDate(event.getDate());
+			
 			eventService.save(eventTemp);
 		}
 		else{
 			eventService.save(event);
 		}
+		
 		return "redirect:/events";
 	}
 

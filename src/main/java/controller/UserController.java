@@ -29,7 +29,7 @@ public class UserController {
 	UserService userService;
 	@RequestMapping(value = "/addUser", method = RequestMethod.GET)
 	public String addUser(Model model) {
-		return "feed";
+		return "addUser";
 	}
 	
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
