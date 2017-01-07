@@ -23,7 +23,19 @@ public class User {
 	@Embedded
 	private Address address;
 	
+	@Lob
+	private byte[] image;
 	
+	public byte[] getImage() {
+		return image;
+	}
+
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+
 	public Event getEvent() {
 		return event;
 	}

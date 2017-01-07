@@ -28,6 +28,7 @@
 				<td>${user.password}</td>
 				<td>${user.id}</td>
 				<td>${user.address.city}</td>
+				<td><img src="/hello/image/${user.id}" alt="Image placeholder" width="100px"></td>
 				<td>
 					<form action="delete" method="post">
 						<input name="userId" value="${user.id}" type="hidden">

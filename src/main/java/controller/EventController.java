@@ -102,8 +102,7 @@ public class EventController {
 	}
 
 	@RequestMapping(value = "/addEventItem", method = RequestMethod.POST)
-	public String addItem(@RequestParam("eventId") int eventId, @RequestParam("name") String name,
-			@RequestParam("price") double price, Model model) {
+	public String addItem(@RequestParam("eventId") int eventId, @RequestParam("name") String name, @RequestParam("price") double price, Model model) {
 		items.add(new Item(name, price));
 		System.out.println(eventId);
 		model.addAttribute("items", items);

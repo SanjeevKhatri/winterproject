@@ -14,7 +14,7 @@
 <body>
 <%-- <%@include file="Admin/header.jsp" %>
  --%>
-	<form:form action="addUser" method="post" commandName="user">
+	<form:form action="addUser" method="post" commandName="user" enctype="multipart/form-data"> 
 		<table>
 		
 			<tr>
@@ -29,12 +29,18 @@
 			
 			<tr>
 				<td>Password</td>
-				<td><form:input type="password" path="password" value="${user.password}"/></td>
+				<td><form:input type="password" path="password" value="${user.password}"/>
+				</td>
 			</tr>
 			
 			<tr>
 				<td>City</td>
 				<td><form:input type="text" path="address.city"/></td>
+			</tr>
+			
+			<tr>
+				<td>Choose Image:</td>
+				<td><form:input class="input-group" type="file" path="image"/> </td>
 			</tr>
 
 			<tr>

@@ -1,14 +1,23 @@
 package controller;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import dao.UserDao;
 import domain.User;
@@ -24,9 +33,27 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-	public String saveUser(@ModelAttribute("user") User user, Model model) {
+	public String saveUser(@ModelAttribute("user") User user,BindingResult result, Model model, @RequestParam MultipartFile image) throws IOException {
+		if(image!=null){
+			user.setImage(image.getBytes());
+		}
+		
 		userService.save(user);
-		return "feed";
+		return "redirect:/users";
+	}
+	
+	
+	@RequestMapping(value = "/image/{userId}", method = RequestMethod.GET)
+	public void getImageForProduct(Model model, @PathVariable("userId") int userId, HttpServletResponse response,HttpServletRequest request) 
+	          throws ServletException, IOException {
+		
+		System.out.println("getting image");
+		
+		User user = userService.findUserById(userId);
+	    response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
+	    ServletOutputStream out = response.getOutputStream();
+	    out.write(user.getImage());
+	    out.close();
 	}
 	
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
