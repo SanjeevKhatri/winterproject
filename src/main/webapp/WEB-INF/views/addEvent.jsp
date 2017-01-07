@@ -187,6 +187,11 @@
 											<td><form:input type="text" path="place"
 													value="${event.place}" /></td>
 										</tr>
+										<tr>
+											<td>Date</td>
+											<td><form:input type="date" path="date"
+													value="${event.date}" /></td>
+										</tr>
 
 
 										<tr>

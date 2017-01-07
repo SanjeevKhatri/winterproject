@@ -168,51 +168,102 @@
 
 
 					<div>
-						<h1>${event.name}</h1>
+						<h1>Event Title: ${event.name}</h1>
 					</div>
 					<div class="content">
-						<ul>
-							<li>${event.date}</li>
-							<li>${event.place}</li>
-							<li><c:forEach var="user" items="${activeUser}">
-									<p class="activeMembers">${user.name}</p>
-								</c:forEach></li>
-							<li>
-								<form action="/hello/addEventUser" method="post">
-									<c:forEach var="user" items="${users}">
-										<li class="members"><input type="hidden" name="eventId"
-											value="${event.id}" /> <input type="checkbox" name="user"
-											value="${user.name}" />${user.name}</li>
-									</c:forEach>
-									<input type="submit" name="save" />
-								</form>
-							</li>
+						<p>
+							<small class="text-muted"><i class="fa fa-clock-o"></i>Event
+								Date: ${event.date}</small>
+						</p>
+						Event Place: ${event.place}
+						<hr>
 
-							<c:forEach var="item" items="${items}">
-								<li class="items">
-									<ul>
-										<li>${item.name}</li>
-										<li>${item.price}</li>
-									</ul>
-								</li>
-							</c:forEach>
+						<!----------------------------------------Members---------------------------------------------->
+						<a class="btn btn-primary" data-toggle="modal" href="#myModal">Add
+							Members Involved</a>
+						<div class="modal fade" id="myModal" role="dialog">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="">
+											<span>×</span>
+										</button>
+										<h4 class="modal-title" style="text-align: center">Members
+											in Group</h4>
+									</div>
+									<div class="modal-body">
+										<c:forEach var="user" items="${activeUser}">
+											<p class="activeMembers">${user.name}</p>
+										</c:forEach>
+
+										<form action="/hello/addEventUser" method="post">
+											<c:forEach var="user" items="${users}">
+												<li class="members"><input type="hidden" name="eventId"
+													value="${event.id}" /> <input type="checkbox" name="user"
+													value="${user.name}" />${user.name}</li>
+											</c:forEach>
+											<input type="submit" name="save" />
+										</form>
 
 
-						</ul>
-
-						<form action="/hello/addEventItem" method="post">
-							<div class="form-group">
-								<input class="form-control" placeholder="name" name="name"
-									type="text" autofocus />
+									</div>
+									<div class="modal-footer"></div>
+								</div>
 							</div>
-							<div class="form-group">
-								<input class="form-control" placeholder="place" name="place"
-									type="text" />
+						</div>
+						<!-------------------------------------------------------------------------------------->
+
+
+						<!----------------------------------------Items---------------------------------------------->
+						<a class="btn btn-primary" data-toggle="modal" href="#myModalItem">Add
+							Items Used</a>
+						<div class="modal fade" id="myModalItem" role="dialog">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="">
+											<span>×</span>
+										</button>
+										<h4 class="modal-title" style="text-align: center">Members
+											in Group</h4>
+									</div>
+									<div class="modal-body">
+										<c:forEach var="item" items="${items}">
+											<li class="items">
+												<ul>
+													<li>Item Name: ${item.name}</li>
+													<li>Item Price: ${item.price}</li>
+												</ul>
+											</li>
+										</c:forEach>
+
+										<form action="/hello/addEventItem" method="post">
+											<div class="form-group">
+												<input class="form-control" placeholder="name" name="name"
+													type="text" autofocus />
+											</div>
+											<div class="form-group">
+												<input class="form-control" placeholder="price" name="price"
+													type="text" />
+											</div>
+											<input type="hidden" name="eventId" value="${event.id}" /> <input
+												type="submit" value="Add Product" />
+										</form>
+									</div>
+									<div class="modal-footer"></div>
+								</div>
 							</div>
-							<input type="hidden" name="eventId" value="${event.id}" /> <input
-								type="submit" value="Add Product" />
-						</form>
-						<a href="/hello/addEventDetail/${event.id}">Finish and Save</a>
+						</div>
+						<!-------------------------------------------------------------------------------------->
+
+						
+						<p><br>
+							<a class="btn btn-success btn-cons"
+								href="/hello/addEventDetail/${event.id}">Finish and Save</a>
+						</p>
+
 					</div>
 
 

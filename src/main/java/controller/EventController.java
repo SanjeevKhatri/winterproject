@@ -49,6 +49,7 @@ public class EventController {
 		if(eventTemp!=null){
 			eventTemp.setName(event.getName());
 			eventTemp.setPlace(event.getPlace());
+			eventTemp.setDate(event.getDate());
 			eventService.save(eventTemp);
 		}
 		else{
