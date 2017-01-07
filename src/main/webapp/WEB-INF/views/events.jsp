@@ -180,11 +180,17 @@
 											<!--------------------------------delete------------------------------------->
 
 											<form action="deleteEvent" method="post">
-												<!---------------------------------update------------------------------------>
-												<button type="button" class="btn btn-info">Update
-													Event</button>
+
 												<input name="eventId" value="${event.id}" type="hidden">
 												<input type="submit" class="btn btn-info" value="delete">
+											</form>
+
+											<!---------------------------------update------------------------------------>
+
+											<form action="updateEvent" method="post">
+												<input style="border-radius: 2px" type="hidden"
+													name="eventId" value="${event.id}"> <input
+													type="submit" class="btn btn-info" value="update">
 											</form>
 
 											<!--------------------------------------------------------------------->
@@ -198,9 +204,10 @@
 									<div class="timeline-body">
 										<p>${event.place}</p>
 
-										<a href="eventDetail/${event.id}" type="button" class="btn btn-primary">Event Detail</a>
+										<a href="eventDetail/${event.id}" type="button"
+											class="btn btn-primary">Event Detail</a>
 										<!--------------------------------------------------------------------->
-										
+
 									</div>
 
 

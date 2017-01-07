@@ -177,19 +177,17 @@
 											<td>Name</td>
 											<td><form:input type="text" path="name"
 													value="${event.name}" /></td>
-										</tr>
-
-										<tr>
-											<td>Email</td>
-											<td><form:input type="email" path="email"
-													value="${event.email}" /></td>
+													
+													<form:input type="hidden" path="id"
+													value="${event.id}" />
 										</tr>
 
 										<tr>
 											<td>Place</td>
-											<td><form:input type="password" path="password"
-													value="${event.password}" /></td>
+											<td><form:input type="text" path="place"
+													value="${event.place}" /></td>
 										</tr>
+
 
 										<tr>
 											<td><input type="submit" value="submit"></td>
