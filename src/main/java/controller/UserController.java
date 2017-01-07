@@ -1,6 +1,10 @@
 package controller;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -33,11 +37,17 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-	public String saveUser(@ModelAttribute("user") User user,BindingResult result, Model model, @RequestParam MultipartFile image) throws IOException {
+	public String saveUser(@ModelAttribute("user") User user,BindingResult result, Model model, @RequestParam MultipartFile image, @RequestParam("dob") String dob) throws IOException, ParseException {
 		if(image!=null){
 			user.setImage(image.getBytes());
 		}
+		System.out.println("++++++++++++++++++"+dob);
+
 		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd"); 
+		Date startDate = df.parse(dob);
+		
+		user.setDob(startDate);
 		userService.save(user);
 		return "redirect:/users";
 	}

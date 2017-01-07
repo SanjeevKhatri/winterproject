@@ -118,7 +118,7 @@
 					<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
 					</li>
 					<li class="divider"></li>
-					<li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>
+					<li><a href="/hello"><i class="fa fa-sign-out fa-fw"></i>
 							Logout</a></li>
 				</ul> <!-- /.dropdown-user --></li>
 			<!-- /.dropdown -->
@@ -143,18 +143,14 @@
 					<li><a href="tables.html"><i class="fa fa-table fa-fw"></i>
 							Events<span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
-							<li><a href="feed">See Event</a></li>
+							<li><a href="events">See Event</a></li>
 							<li><a href="addEvent">Add Event</a></li>
-							<li><a href="feed">Update Event</a></li>
-							<li><a href="feed">Delete Event</a></li>
 						</ul></li>
 					<li><a href="forms.html"><i class="fa fa-edit fa-fw"></i>
 							Posts<span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
-							<li><a href="feed">See Post</a></li>
-							<li><a href="feed">Add Post</a></li>
-							<li><a href="feed">Update Post</a></li>
-							<li><a href="feed">Delete Post</a></li>
+							<li><a href="#">See Post</a></li>
+							<li><a href="#">Add Post</a></li>
 						</ul></li>
 				</ul>
 			</div>

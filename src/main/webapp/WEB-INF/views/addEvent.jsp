@@ -142,18 +142,14 @@
 					<li><a href="tables.html"><i class="fa fa-table fa-fw"></i>
 							Events<span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
-							<li><a href="seeevents">See Event</a></li>
-							<li><a href="feed">Add Event</a></li>
-							<li><a href="feed">Update Event</a></li>
-							<li><a href="feed">Delete Event</a></li>
+							<li><a href="events">See Event</a></li>
+							<li><a href="addEvent">Add Event</a></li>
 						</ul></li>
 					<li><a href="forms.html"><i class="fa fa-edit fa-fw"></i>
 							Posts<span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
-							<li><a href="feed">See Post</a></li>
-							<li><a href="feed">Add Post</a></li>
-							<li><a href="feed">Update Post</a></li>
-							<li><a href="feed">Delete Post</a></li>
+							<li><a href="#">See Post</a></li>
+							<li><a href="#">Add Post</a></li>
 						</ul></li>
 				</ul>
 			</div>

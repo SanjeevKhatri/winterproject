@@ -14,7 +14,7 @@ public class User {
 	@JoinTable(name = "User_Event")
 	private Event event;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date dob;
 	
 	private String name;
